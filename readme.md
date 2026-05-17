@@ -1,4 +1,4 @@
-# Upload files express
+# Upload files express [![upload-files-express](https://img.shields.io/npm/v/upload-files-express?label=upload-files-express&color=greenlime)](https://www.npmjs.com/package/upload-files-express)
 
 An easy way to handle file uploads on the server with express. The files are saved in the filesystem and put in `req.files`:
 
