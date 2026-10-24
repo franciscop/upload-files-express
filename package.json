@@ -19,7 +19,8 @@
     "files"
   ],
   "scripts": {
-    "demo": "node demo.js"
+    "demo": "node demo.js",
+    "lint": "oxlint index.js"
   },
   "main": "index.js",
   "files": [],
@@ -27,6 +28,7 @@
     "formidable": "^2.0.1"
   },
   "devDependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "oxlint": "^1.89.0"
   }
 }
