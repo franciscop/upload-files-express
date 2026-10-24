@@ -1,9 +1,9 @@
-# Upload files express [![npm install upload-files-express](https://img.shields.io/badge/npm%20install-upload--files--express-blue.svg)](https://www.npmjs.com/package/upload-files-express)
+# Upload files express [![npm install upload-files-express](https://img.shields.io/badge/npm%20install-upload--files--express-blue.svg)](https://www.npmjs.com/package/upload-files-express) [![tests](https://github.com/franciscop/upload-files-express/workflows/tests/badge.svg)](https://github.com/franciscop/upload-files-express/actions)
 
 An easy way to handle file uploads on the server with express. The files are saved in the filesystem and put in `req.files`:
 
 ```js
-const uploadFiles = require("upload-files-express");
+import uploadFiles from "upload-files-express";
 
 // Pass any options that you want here:
 app.use(uploadFiles());
@@ -38,8 +38,8 @@ npm install upload-files-express
 Then you have to import it and load it as an [express middleware](https://expressjs.com/en/guide/using-middleware.html) in your server:
 
 ```js
-const express = require("express");
-const uploadFiles = require("upload-files-express");
+import express from "express";
+import uploadFiles from "upload-files-express";
 
 const app = express();
 
@@ -100,8 +100,8 @@ You likely want to upload your files to a 3rd party storage service, since most 
 To keep our files we can upload these to S3, Backblaze's B2, Google's GCS, etc. We are using a fictitious service here `some-service`:
 
 ```js
-const uploadFiles = require("upload-files-express");
-const service = require("some-service");
+import uploadFiles from "upload-files-express";
+import service from "some-service";
 
 app.use(uploadFiles());
 

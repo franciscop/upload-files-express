@@ -1,6 +1,6 @@
-const formidable = require("formidable");
+import formidable from "formidable";
 
-module.exports = function (options = {}) {
+export default function (options = {}) {
   return function (req, res, next) {
     // These cannot have a body at all, so don't even attempt it
     if (req.method === "GET" || req.method === "DELETE") return next();
@@ -27,15 +27,20 @@ module.exports = function (options = {}) {
 
     form.parse(req, function (err, fields, files) {
       if (err) return next(err);
-      req.body = fields;
+      // formidable returns every value as an array; keep the last one, as before
+      req.body = {};
+      for (let field in fields) {
+        req.body[field] = fields[field].at(-1);
+      }
       req.files = {};
-      for (let file in files) {
-        req.files[file] = {
-          path: files[file].filepath,
-          name: files[file].originalFilename,
-          type: files[file].mimetype,
-          size: files[file].size,
-          modified: files[file].lastModifiedDate,
+      for (let name in files) {
+        const file = files[name].at(-1);
+        req.files[name] = {
+          path: file.filepath,
+          name: file.originalFilename,
+          type: file.mimetype,
+          size: file.size,
+          modified: file.lastModifiedDate,
         };
       }
       next();

@@ -20,15 +20,17 @@
   ],
   "scripts": {
     "demo": "node demo.js",
+    "test": "bun test",
     "lint": "oxlint index.js"
   },
   "main": "index.js",
+  "type": "module",
   "files": [],
   "dependencies": {
-    "formidable": "^2.0.1"
+    "formidable": "^3.5.4"
   },
   "devDependencies": {
-    "express": "^4.17.1",
+    "express": "^5.3.0",
     "oxlint": "^1.89.0"
   }
 }

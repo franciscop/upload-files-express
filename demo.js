@@ -1,5 +1,5 @@
-const express = require("express");
-const uploadFiles = require(".");
+import express from "express";
+import uploadFiles from "./index.js";
 
 const app = express();
 
